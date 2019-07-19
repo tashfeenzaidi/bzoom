@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@android:color/white">
+
+    <ImageView
+        android:id="@+id/image_rv"
+        android:layout_width="@dimen/_50sdp"
+        android:layout_height="@dimen/_50sdp"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/clip"
+        android:layout_margin="@dimen/_10sdp"/>
+
+    <TextView
+        android:id="@+id/name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:fontFamily="@font/roboto_bold"
+        android:gravity="center"
+        android:text="Raees ahmad "
+        android:textSize="@dimen/_16sdp"
+        android:layout_below="@+id/image_rv"
+        />
+
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:fontFamily="@font/roboto_bold"
+        android:gravity="center"
+        android:text="How was your Chauffeur? "
+        android:textSize="@dimen/_16sdp"
+        android:layout_below="@+id/name"
+        android:layout_marginTop="@dimen/_10sdp"
+        />
+    <RatingBar
+        android:id="@+id/ratingBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:numStars="5"
+        android:stepSize="0.1"
+        android:progressTint="@color/colorPrimary"
+        android:progressBackgroundTint="@color/subtextColor"
+        android:rating="4"
+        android:layout_below="@+id/textView"
+        android:layout_centerHorizontal="true"/>
+
+    <RelativeLayout
+        android:id="@+id/center"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/ratingBar"
+        android:layout_margin="@dimen/_5sdp"
+       >
+        <ImageView
+            android:id="@+id/wallet"
+            android:layout_width="@dimen/_15sdp"
+            android:layout_height="@dimen/_15sdp"
+            android:src="@drawable/wallet1"
+            android:layout_alignParentLeft="true"
+            android:layout_marginStart="@dimen/_25sdp"
+            android:layout_centerVertical="true"/>
+        <TextView
+            android:id="@+id/money"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/roboto_bold"
+            android:text="2000 Rs"
+            android:textSize="@dimen/_16sdp"
+            android:layout_toEndOf="@+id/wallet"
+            android:layout_centerVertical="true"
+            />
+
+        <ImageView
+            android:id="@+id/distence"
+            android:layout_width="@dimen/_15sdp"
+            android:layout_height="@dimen/_15sdp"
+            android:layout_toStartOf="@+id/number"
+            android:src="@drawable/distence"
+            android:layout_centerVertical="true"/>
+        <TextView
+            android:id="@+id/number"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/roboto_bold"
+            android:text="250 km"
+            android:textSize="@dimen/_16sdp"
+            android:layout_alignParentRight="true"
+            android:layout_marginEnd="@dimen/_25sdp"
+            android:layout_centerVertical="true"
+            />
+    </RelativeLayout>
+
+    <EditText
+        android:id="@+id/editText"
+        android:background="@drawable/multi_line_edittext_style"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/center"
+        android:layout_centerHorizontal="true"
+        android:minLines="6"
+        android:lines="8"
+        android:gravity="top|start"
+        android:scrollbars="vertical"
+        android:scrollHorizontally="false"
+        android:padding="@dimen/_15sdp"
+        android:layout_margin="@dimen/_10sdp"
+        android:inputType="textMultiLine"
+        android:hint="Leave a review for this client"
+        android:focusable="false"
+        />
+
+    <Button
+        android:id="@+id/next"
+        android:layout_width="327dp"
+        android:layout_height="57dp"
+        android:background="@drawable/btn"
+        android:fontFamily="@font/ubuntu_bold"
+        android:text="submit"
+        android:textColor="@android:color/white"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/editText"
+        android:layout_margin="@dimen/_10sdp"
+        />
+</RelativeLayout>

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+ <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@android:color/white">
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:id="@+id/name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Touch Screen"
+            android:fontFamily="@font/roboto"
+            android:textColor="#000"
+            android:textSize="@dimen/_16sdp"
+            android:layout_marginStart="@dimen/_25sdp"
+            android:layout_centerVertical="true"
+            />
+
+        <View
+            android:layout_width="@dimen/_1sdp"
+            android:layout_height="@dimen/_25sdp"
+            android:layout_marginEnd="@dimen/_20sdp"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:layout_toStartOf="@+id/switch1"
+            android:background="@color/common_google_signin_btn_text_dark_disabled" />
+        <CheckBox
+            android:id="@+id/switch1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginEnd="@dimen/_20sdp"
+            android:buttonTint="@color/colorPrimary"/>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_1sdp"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:layout_below="@+id/name"
+            android:background="@color/common_google_signin_btn_text_dark_disabled" />
+    </RelativeLayout>
+</RelativeLayout>

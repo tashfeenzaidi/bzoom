@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+
+    tools:context=".FindingActivity">
+
+
+    <fragment xmlns:android="http://schemas.android.com/apk/res/android"
+            android:name="com.google.android.gms.maps.SupportMapFragment"
+            android:id="@+id/map"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            />
+
+    <Button
+        android:id="@+id/cancel"
+        android:layout_width="@dimen/_270sdp"
+        android:layout_height="@dimen/_47sdp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="@dimen/_80sdp"
+        android:background="@drawable/btn"
+        android:fontFamily="@font/ubuntu_bold_sec"
+        android:text="Cancel"
+        android:textColor="@color/common_google_signin_btn_text_dark_pressed"
+        android:textSize="@dimen/_16sdp" />
+</RelativeLayout>

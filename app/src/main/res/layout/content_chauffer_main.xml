@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context=".ChaufferMainActivity"
+    tools:showIn="@layout/app_bar_chauffer_main">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:id="@+id/main"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <RelativeLayout
+                android:id="@+id/top"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_50sdp">
+                <TextView
+                    android:layout_width="@dimen/_180sdp"
+                    android:layout_height="wrap_content"
+                    android:text="Which car do you want to drive?"
+                    android:textSize="@dimen/_16sdp"
+                    android:fontFamily="@font/ubuntu_bold"
+                    android:layout_centerHorizontal="true"
+                    android:textColor="@color/colorPrimary"
+                    android:gravity="center"
+                    />
+            </RelativeLayout>
+            <RelativeLayout
+                android:id="@+id/center"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/top"
+                android:layout_marginTop="@dimen/_35sdp">
+
+                <ImageView
+                    android:id="@+id/pre"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_gravity="center"
+                    android:contentDescription="@string/app_name"
+                    android:src="@drawable/previous"
+                    android:layout_marginTop="@dimen/_45sdp"
+                    android:layout_marginStart="@dimen/_15sdp"/>
+                <ImageView
+                    android:id="@+id/next"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_gravity="center"
+                    android:contentDescription="@string/app_name"
+                    android:src="@drawable/next"
+                    android:layout_marginTop="@dimen/_45sdp"
+                    android:layout_marginEnd="@dimen/_15sdp"
+                    />
+                <RelativeLayout
+                    android:id="@+id/slider"
+                    android:layout_width="@dimen/_160sdp"
+                    android:layout_height="@dimen/_130sdp"
+                    android:layout_centerHorizontal="true">
+                    <ViewFlipper
+                        android:id="@+id/viewflipper"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_centerHorizontal="true"
+                        android:layout_centerVertical="true">
+                        <RelativeLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content">
+                            <ImageView
+                                android:id="@+id/slider1"
+                                android:layout_width="wrap_content"
+                                android:layout_height="@dimen/_100sdp"
+                                android:src="@drawable/slider03" />
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Basic car"
+                                android:fontFamily="@font/roboto_bold"
+                                android:textSize="@dimen/_16sdp"
+                                android:layout_centerHorizontal="true"
+                                android:layout_below="@id/slider1"/>
+
+                        </RelativeLayout>
+                        <RelativeLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content">
+                            <ImageView
+                                android:id="@+id/slider2"
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/_100sdp"
+                                android:src="@drawable/slider01"
+                                />
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Standard car"
+                                android:fontFamily="@font/roboto_bold"
+                                android:textSize="@dimen/_16sdp"
+                                android:layout_centerHorizontal="true"
+                                android:layout_below="@id/slider2"/>
+
+                        </RelativeLayout>
+                        <RelativeLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content">
+                            <ImageView
+                                android:id="@+id/slider3"
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/_100sdp"
+                                android:src="@drawable/slider02"
+                                />
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Premium car"
+                                android:fontFamily="@font/roboto_bold"
+                                android:textSize="@dimen/_16sdp"
+                                android:layout_centerHorizontal="true"
+                                android:layout_below="@id/slider3"/>
+
+                        </RelativeLayout>
+                    </ViewFlipper>
+                </RelativeLayout>
+
+            </RelativeLayout>
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_below="@+id/center"
+                android:layout_marginTop="@dimen/_80sdp">
+                <Button
+                    android:id="@+id/Next"
+                    android:layout_width="327dp"
+                    android:layout_height="57dp"
+                    android:background="@drawable/btn"
+                    android:fontFamily="@font/ubuntu_bold"
+                    android:text="@string/next"
+                    android:textColor="@android:color/white"
+                    android:layout_alignParentBottom="true"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginHorizontal="@dimen/_16sdp"/>
+            </RelativeLayout>
+        </RelativeLayout>
+
+    </ScrollView>
+
+</RelativeLayout>

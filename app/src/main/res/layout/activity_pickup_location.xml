@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".PickupLocationActivity">
+
+
+    <RelativeLayout
+        android:id="@+id/taskbar"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_50sdp"
+        android:background="@color/colorPrimary">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+
+            android:layout_centerVertical="true"
+            android:fontFamily="@font/ubuntu_bold"
+            android:gravity="center"
+            android:text="Pickup Location"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/_18sdp" />
+
+        <ImageView
+            android:id="@+id/imageView3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="@dimen/_14sdp"
+            app:srcCompat="@drawable/back" />
+    </RelativeLayout>
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/taskbar"
+        >
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@+id/buttonPanel">
+            <!--<RelativeLayout-->
+                <!--android:id="@+id/toplay"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="@dimen/_58sdp"-->
+                <!--android:background="@color/colorPrimaryDark">-->
+
+                <!--<View-->
+                    <!--android:id="@+id/divider"-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="@dimen/_1sdp"-->
+                    <!--android:background="#ffff" />-->
+
+                <!--<TextView-->
+                    <!--android:id="@+id/textView7"-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:layout_centerHorizontal="true"-->
+                    <!--android:layout_marginTop="@dimen/_10sdp"-->
+                    <!--android:fontFamily="@font/roboto_bold"-->
+                    <!--android:text="@string/time"-->
+                    <!--android:textColor="#ffff"-->
+                    <!--android:textSize="@dimen/_16sdp" />-->
+
+                <!--<TextView-->
+                    <!--android:id="@+id/textView8"-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:layout_below="@+id/textView7"-->
+                    <!--android:layout_centerHorizontal="true"-->
+
+                    <!--android:fontFamily="@font/roboto"-->
+                    <!--android:text="@string/time_tag"-->
+                    <!--android:textColor="#ffff"-->
+                    <!--android:textSize="@dimen/_12sdp"-->
+                    <!--android:gravity="top"/>-->
+
+            <!--</RelativeLayout>-->
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_386sdp"
+                android:orientation="vertical"
+                android:layout_below="@id/toplay"
+                >
+                <fragment xmlns:android="http://schemas.android.com/apk/res/android"
+                    android:name="com.google.android.gms.maps.SupportMapFragment"
+                    android:id="@+id/map"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
+            </RelativeLayout>
+        </RelativeLayout>
+
+
+
+    </ScrollView>
+
+    <!--<FrameLayout-->
+    <!--android:id="@+id/map_frame"-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content">-->
+
+    <!--</FrameLayout>-->
+
+
+    <include
+        android:id="@+id/buttonPanel"
+        layout="@layout/ride_start_buttom"
+        android:layout_width="match_parent"
+        android:layout_height="158dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="0dp" />
+
+</RelativeLayout>

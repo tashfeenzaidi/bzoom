@@ -1,0 +1,259 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@android:color/white">
+
+    <RelativeLayout
+        android:id="@+id/map_cor"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_above="@+id/buttom"
+        >
+        <fragment xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:map="http://schemas.android.com/apk/res-auto"
+            android:name="com.google.android.gms.maps.SupportMapFragment"
+            android:id="@+id/map"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:elevation="@dimen/_30sdp"
+        android:layout_margin="@dimen/_20sdp">
+        <include
+            layout="@layout/rider_home_selecte_car_type" />
+    </RelativeLayout>
+
+
+    <RelativeLayout
+        android:id="@+id/releative"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_100sdp">
+        <androidx.cardview.widget.CardView
+            android:id="@+id/topcard"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_84sdp"
+            android:layout_marginVertical="@dimen/_15sdp"
+            app:cardElevation="@dimen/_5sdp"
+            app:cardCornerRadius="@dimen/_15sdp"
+            android:layout_marginHorizontal="@dimen/_17sdp"
+            android:visibility="visible"
+            >
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                >
+                <ImageView
+                    android:id="@+id/img"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/sourcedestination"
+                    android:layout_centerVertical="true"
+                    android:layout_margin="@dimen/_20sdp"
+                    />
+                <RelativeLayout
+                    android:id="@+id/center"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_toEndOf="@+id/img"
+                    android:layout_toStartOf="@+id/end"
+                    >
+                    <EditText
+                        android:id="@+id/source"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="#00000000"
+                        android:text="243 Meat Cheese"
+                        android:textSize="@dimen/_13sdp"
+                        android:fontFamily="@font/roboto"
+                        android:layout_margin="@dimen/_12sdp"
+                        android:textColor="@color/headingColor"/>
+                    <ImageView
+                        android:id="@+id/currentlocation"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/currentlocation"
+                        android:layout_marginVertical="@dimen/_16sdp"
+                        android:layout_alignParentEnd="true"
+                        />
+                    <View
+                        android:id="@+id/div"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_1sdp"
+                        android:background="@color/common_google_signin_btn_text_light_disabled"
+                        android:layout_centerVertical="true"/>
+
+                    <EditText
+                        android:id="@+id/destinaton"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="#00000000"
+                        android:text="Disco Bakery, Gulshan"
+                        android:textSize="@dimen/_13sdp"
+                        android:fontFamily="@font/roboto"
+                        android:layout_margin="@dimen/_12sdp"
+                        android:layout_below="@+id/div"
+                        android:textColor="@color/headingColor"/>
+
+
+                </RelativeLayout>
+
+
+                <ImageView
+                        android:id="@+id/end"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/gonback"
+                        android:layout_centerVertical="true"
+                        android:layout_alignParentEnd="true"
+                    android:layout_margin="@dimen/_10sdp"
+                        />
+
+            </RelativeLayout>
+
+
+
+
+
+
+
+
+
+
+
+
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/topcardrent"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_44sdp"
+            android:layout_marginVertical="@dimen/_15sdp"
+            app:cardElevation="@dimen/_5sdp"
+            app:cardCornerRadius="@dimen/_15sdp"
+            android:layout_marginHorizontal="@dimen/_17sdp"
+            android:visibility="gone"
+            >
+            <RelativeLayout
+                android:id="@+id/center1"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_toEndOf="@+id/img"
+                android:layout_toStartOf="@+id/end"
+
+                >
+                <ImageView
+                    android:id="@+id/location"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/location"
+                    android:layout_centerVertical="true"
+                    android:layout_marginHorizontal="@dimen/_10sdp"
+                    />
+                <EditText
+                    android:id="@+id/source1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="#00000000"
+                    android:text="243 Meat Cheese"
+                    android:textSize="@dimen/_13sdp"
+                    android:fontFamily="@font/roboto"
+                    android:layout_centerVertical="true"
+                    android:textColor="@color/headingColor"
+                    android:layout_toEndOf="@+id/location"/>
+                <ImageView
+                    android:id="@+id/currentlocation1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/currentlocation"
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginEnd="@dimen/_10sdp"
+                    />
+            </RelativeLayout>
+        </androidx.cardview.widget.CardView>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/buttom"
+        android:layout_marginBottom="@dimen/_50sdp"
+        android:gravity="center">
+
+        <Button
+            android:id="@+id/bzoom"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_47sdp"
+            android:background="@drawable/btn"
+            android:fontFamily="@font/ubuntu_bold"
+            android:text="BZOOM"
+            android:textColor="@android:color/white"
+            android:layout_centerHorizontal="true"
+            android:layout_marginHorizontal="@dimen/_18sdp"
+            />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/buttom"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="@color/colorPrimary"
+        android:gravity="center"
+        android:paddingBottom="@dimen/_2sdp"
+        android:paddingTop="@dimen/_5sdp">
+
+        <LinearLayout
+            android:id="@+id/top"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:weightSum="2">
+            <Button
+                android:id="@+id/ride"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="Cab"
+                android:drawableTop="@drawable/cab"
+                android:textColor="@android:color/white"
+                android:background="@android:color/transparent"/>
+            <Button
+                android:id="@+id/rent"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="Rent a car"
+                android:drawableTop="@drawable/key"
+                android:textColor="@android:color/white"
+                android:background="@android:color/transparent"/>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/top"
+            android:weightSum="2">
+            <View
+                android:id="@+id/cab_border"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/_4sdp"
+                android:background="@android:color/white"/>
+            <View
+                android:id="@+id/rent_border"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/_4sdp"
+                android:background="@android:color/white"/>
+        </LinearLayout>
+</RelativeLayout>
+
+</RelativeLayout>

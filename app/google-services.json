@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "38444818771",
+    "firebase_url": "https://bzoom-42547.firebaseio.com",
+    "project_id": "bzoom-42547",
+    "storage_bucket": "bzoom-42547.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:38444818771:android:f992d782c084a262",
+        "android_client_info": {
+          "package_name": "com.example.bzoom"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "38444818771-nq3iu29dmoj31ampe01sufe4k6m8jqhn.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAlWF-OwLtayQEpw7nhEqUax24JiqPGLpQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "38444818771-nq3iu29dmoj31ampe01sufe4k6m8jqhn.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

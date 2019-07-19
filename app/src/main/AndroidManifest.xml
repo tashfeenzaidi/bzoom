@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:dist="http://schemas.android.com/apk/distribution"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.example.bzoom">
+    <!--
+         The ACCESS_COARSE/FINE_LOCATION permissions are not required to use
+         Google Maps Android API v2, but you must specify either coarse or fine
+         location permissions for the 'MyLocation' functionality.
+    -->
+    <permission
+        android:name="com.google.maps.android.utils.permission.MAPS_RECEIVE"
+        android:protectionLevel="signature" />
+
+    <uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="com.google.maps.android.utils.permission.MAPS_RECEIVE" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.CALL_PHONE"/>
+
+    <uses-feature android:name="android.hardware.camera" />
+    <uses-feature
+        android:name="android.hardware.location"
+        android:required="true" />
+    <uses-feature
+        android:name="android.hardware.location.gps"
+        android:required="false" />
+    <uses-feature
+        android:glEsVersion="0x00020000"
+        android:required="true"/>
+    <dist:module dist:instant="true" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/icon"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/icon"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme"
+        tools:ignore="GoogleAppIndexingWarning"
+        tools:replace="android:appComponentFactory"
+        android:appComponentFactory="whateverString">
+        <activity android:name=".SelectOwnerListActivity" />
+        <activity android:name=".ChaufferSuccessActivity" />
+        <activity android:name=".CollectTheCarActivity" />
+        <activity
+            android:name=".FindingActivity"
+            android:screenOrientation="portrait" />
+        <activity android:name=".ChaufferRideStart" />
+        <activity
+            android:name=".ChaufferMainActivity"
+            android:label="@string/title_activity_chauffer_main"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".PickupLocationActivity" />
+        <activity android:name=".SelectTimeActivity" />
+        <activity android:name=".SelectCarActivity" />
+        <activity android:name=".AmountCollected" />
+
+        <activity
+            android:name=".ChauffeurProfile"
+            android:parentActivityName=".RideStartActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.bzoom.RideStartActivity" />
+        </activity>
+        <!--
+             The API key for Google Maps-based APIs is defined as a string resource.
+             (See the file "res/values/google_maps_api.xml").
+             Note that the API key is linked to the encryption key used to sign the APK.
+             You need a different API key for each encryption key, including the release key that is used to
+             sign the APK for publishing.
+             You can define the keys for the debug and release targets in src/debug/ and src/release/.
+        -->
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="@string/google_maps_key" />
+
+        <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" />
+
+        <activity
+            android:name=".MapsActivity"
+            android:label="@string/title_activity_maps" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".RideStartActivity" />
+        <activity
+            android:name=".RequestRide"
+            android:label="Request_Code" />
+        <activity android:name=".MainActivity" />
+        <activity android:name=".NavigationActivity">
+
+        </activity>
+        <activity android:name=".Belongins" />
+        <activity android:name=".RiderRideStarted" />
+        <activity android:name=".DriverConnected" />
+        <activity android:name=".Otp" />
+        <activity android:name=".Verified" />
+        <activity android:name=".Name" />
+        <activity android:name=".Email" />
+        <activity android:name=".ConfirmDetail" />
+
+
+        <activity
+            android:name=".TrackActivity"
+            android:label="@string/title_activity_track"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".PasswordActivity" />
+        <activity android:name=".TripEnd" />
+
+        <activity android:name=".MobileActivity" >
+
+        </activity>
+        <activity android:name=".PickupRide" >
+
+        </activity>
+        <activity android:name=".Login">
+
+        </activity>
+        <activity android:name=".Splash_Screen">
+
+        </activity>
+        <activity android:name=".ReturnCarToOwner">
+
+        </activity>
+        <activity android:name=".ChaufferEndTime" />
+
+        <!--<service-->
+            <!--android:name=".FetchAddressIntentService"-->
+            <!--android:exported="false"/>-->
+
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts" />
+    </application>
+
+</manifest>

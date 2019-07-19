@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#FC8E11</color>
+    <color name="colorPrimaryDark">#FC8E11</color>
+    <color name="colorAccent">#FC8E11</color>
+    <color name="btn_color">#524948</color>
+    <color name="borderColor">#FC8E11</color>
+    <color name="textColor">#524948</color>
+    <color name="subtextColor">#9E9E9E</color>
+    <color name="dividerColor">#11000000</color>
+    <color name="headingColor">#353B3E</color>
+    <color name="buttonTextColor">#FFFAFA</color>
+
+
+
+</resources>

@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@android:color/white">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/top"
+        android:background="@color/colorPrimary"
+        android:layout_marginBottom="@dimen/_10sdp">
+        <TextView
+            android:id="@+id/away"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="6 min away"
+            android:textSize="@dimen/_18sdp"
+            android:fontFamily="@font/roboto"
+            android:textColor="@color/headingColor"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/_10sdp"/>
+
+        <TextView
+            android:id="@+id/trip"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Long trip (45+ min)"
+            android:textSize="@dimen/_18sdp"
+            android:fontFamily="@font/roboto"
+            android:textColor="@color/headingColor"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@+id/away"
+            android:layout_margin="@dimen/_10sdp"/>
+    </RelativeLayout>
+
+    <fragment xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/map_cor"
+        android:layout_below="@+id/top"
+        android:name="com.google.android.gms.maps.SupportMapFragment"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_200sdp"
+        tools:context="com.example.currentplacedetailsonmap.MapsActivityCurrentPlace" />
+    <Button
+        android:id="@+id/next"
+        android:layout_width="327dp"
+        android:layout_height="57dp"
+        android:background="@drawable/btn"
+        android:fontFamily="@font/ubuntu_bold"
+        android:text="Tap to accept"
+        android:textColor="@android:color/white"
+        android:layout_centerHorizontal="true"
+        android:layout_margin="@dimen/_10sdp"
+        android:layout_below="@+id/map_cor"
+        />
+    <ProgressBar
+        android:id="@+id/progress"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@android:style/Widget.Material.ProgressBar.Horizontal"
+        android:progress="25"
+        android:progressBackgroundTint="@color/btn_color"
+        android:progressTint="@color/colorPrimary"
+        android:layout_below="@+id/next"
+        />
+
+</RelativeLayout>

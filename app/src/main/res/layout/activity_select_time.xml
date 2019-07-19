@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white"
+    tools:context=".SelectTimeActivity"
+    android:screenOrientation="portrait" >
+
+    <RelativeLayout
+        android:id="@+id/taskbar"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_50sdp"
+        android:background="@color/colorPrimary">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+
+            android:layout_centerVertical="true"
+            android:fontFamily="@font/ubuntu_bold"
+            android:gravity="center"
+            android:text="Raees profile"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/_18sdp" />
+
+        <ImageView
+            android:id="@+id/imageView3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="@dimen/_14sdp"
+            app:srcCompat="@drawable/back" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/taskbar">
+
+        <ImageView
+            android:id="@+id/imageView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_50sdp"
+            android:layout_below="@+id/enter_number"
+            android:layout_centerHorizontal="true"
+            app:srcCompat="@drawable/clock" />
+
+        <TextView
+            android:id="@+id/enter_number"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/_50sdp"
+            android:fontFamily="@font/ubuntu_bold"
+            android:text="Your end time?"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="@dimen/_20sdp" />
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@+id/imageView2">
+
+            <TextView
+                android:id="@+id/time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/roboto_bold"
+                android:padding="@dimen/_5sdp"
+                android:text="1:16"
+                android:textColor="@color/common_google_signin_btn_text_dark_focused"
+                android:textSize="@dimen/_30sdp" />
+
+            <TextView
+                android:id="@+id/ampm"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/_5sdp"
+                android:layout_toEndOf="@+id/time"
+                android:fontFamily="@font/roboto"
+                android:text="AM"
+                android:textColor="@color/common_google_signin_btn_text_dark_focused"
+                android:textSize="@dimen/_30sdp" />
+        </RelativeLayout>
+
+
+
+        <Button
+            android:id="@+id/next"
+            style="@style/Widget.AppCompat.Button.Borderless.Colored"
+            android:layout_width="@dimen/_270sdp"
+            android:layout_height="@dimen/_47sdp"
+            android:background="@drawable/btn"
+            android:fontFamily="@font/ubuntu_bold"
+            android:text="@string/confirm_date_time"
+            android:textColor="@android:color/white"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="@dimen/_80sdp"
+            />
+    </RelativeLayout>
+
+</RelativeLayout>

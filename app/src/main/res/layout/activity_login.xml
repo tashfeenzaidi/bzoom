@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white"
+    tools:context=".Login">
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@+id/rider"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/icon_m" />
+
+    <Button
+        android:id="@+id/driver"
+        android:layout_width="248dp"
+        android:layout_height="41dp"
+        android:layout_marginBottom="36dp"
+        android:background="@drawable/btn"
+        android:fontFamily="@font/ubuntu_bold"
+        android:text="A Rider"
+        android:textColor="@android:color/white"
+        app:layout_constraintBottom_toTopOf="@+id/rider"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+    <Button
+        android:id="@+id/rider"
+        android:layout_width="248dp"
+        android:layout_height="41dp"
+        android:layout_marginBottom="36dp"
+        android:background="@drawable/btn"
+        android:fontFamily="@font/ubuntu_bold"
+        android:text="A Driver"
+        android:textColor="@android:color/white"
+        app:layout_constraintBottom_toTopOf="@+id/owner"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/owner"
+        style="@style/Widget.AppCompat.Button.Borderless.Colored"
+        android:layout_width="248dp"
+        android:layout_height="41dp"
+        android:layout_marginBottom="36dp"
+        android:background="@drawable/btn"
+        android:fontFamily="@font/ubuntu_bold"
+        android:maxWidth="248dp"
+        android:maxHeight="41dp"
+        android:text="@string/owner"
+        android:textColor="@android:color/white"
+        app:layout_constraintBottom_toTopOf="@+id/chauffeur"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/chauffeur"
+        style="@style/Widget.AppCompat.Button.Borderless.Colored"
+        android:layout_width="248dp"
+        android:layout_height="41dp"
+        android:layout_marginBottom="144dp"
+        android:background="@drawable/btn"
+        android:fontFamily="@font/ubuntu_bold"
+        android:maxWidth="248dp"
+        android:maxHeight="41dp"
+        android:text="@string/chauffeur"
+        android:textColor="@android:color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,248 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white">
+
+
+    <RelativeLayout
+        android:id="@+id/taskbar"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_50sdp"
+        android:background="@color/colorPrimary">
+
+        <TextView
+            android:id="@+id/heading"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:fontFamily="@font/ubuntu_bold"
+            android:gravity="center"
+            android:text="BZOOM"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/_18sdp" />
+
+        <ImageView
+            android:id="@+id/imageView3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="@dimen/_14sdp"
+            android:src="@drawable/back" />
+    </RelativeLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/taskbar"
+        android:layout_above="@+id/buttom">
+        <fragment xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:map="http://schemas.android.com/apk/res-auto"
+            android:name="com.google.android.gms.maps.SupportMapFragment"
+            android:id="@+id/map"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            />
+    </RelativeLayout>
+    <RelativeLayout
+        android:id="@+id/buttom"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true">
+        <RelativeLayout
+            android:id="@+id/uppercard"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_70sdp">
+
+            <ImageView
+                android:id="@+id/image_rv"
+                android:layout_width="@dimen/_50sdp"
+                android:layout_height="@dimen/_50sdp"
+                android:layout_alignParentStart="true"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="@dimen/_14sdp"
+                android:layout_marginTop="@dimen/_12sdp"
+                android:background="@drawable/clip" />
+
+            <TextView
+                android:id="@+id/name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_12sdp"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:layout_toEndOf="@+id/image_rv"
+                android:fontFamily="@font/roboto"
+                android:text="Jamal Akhbar"
+                android:textColor="@color/headingColor"
+                android:textSize="@dimen/_14sdp" />
+
+            <TextView
+                android:id="@+id/txtph"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_marginStart="@dimen/_12sdp"
+                android:layout_marginBottom="@dimen/_10sdp"
+                android:layout_toStartOf="@+id/textView2"
+                android:layout_toEndOf="@+id/image_rv"
+                android:fontFamily="@font/roboto"
+                android:text="Toyota Prius - GV8042 - Mini - White"
+                android:textColor="@color/headingColor"
+                android:textSize="@dimen/_9sdp" />
+
+            <RatingBar
+                android:id="@+id/ratingBar"
+                style="?android:attr/ratingBarStyleSmall"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:layout_marginTop="@dimen/_8sdp"
+                android:layout_marginBottom="@dimen/_5sdp"
+                android:layout_centerVertical="true"
+                android:layout_toEndOf="@+id/image_rv"
+                android:numStars="5"
+                android:stepSize="0.1"
+                android:progressTint="@color/colorPrimary"
+                android:progressBackgroundTint="@color/subtextColor"
+                android:rating="4"/>
+
+            <!--<TextView-->
+            <!--android:id="@+id/textView2"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:gravity="end"-->
+            <!--android:layout_alignParentEnd="true"-->
+            <!--android:layout_marginTop="35dp"-->
+            <!--android:layout_marginEnd="13dp"-->
+            <!--android:fontFamily="@font/roboto"-->
+            <!--android:text="@string/timing"-->
+            <!--android:textColor="@color/headingColor"-->
+            <!--android:textSize="@dimen/_9sdp" />-->
+            <ImageView
+                android:id="@+id/textView2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="end"
+                android:layout_alignParentEnd="true"
+                android:layout_marginEnd="@dimen/_25sdp"
+                android:src="@drawable/car1"
+                android:layout_centerVertical="true" />
+
+            <TextView
+                android:id="@+id/textView3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_margin="@dimen/_10sdp"
+                android:layout_toEndOf="@+id/ratingBar"
+                android:fontFamily="@font/roboto"
+                android:text="@string/_4"
+                android:textColor="@android:color/black"
+                android:textSize="@dimen/_9sdp" />
+
+
+        </RelativeLayout>
+        <View
+            android:id="@+id/border"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_1sdp"
+            android:layout_below="@+id/uppercard"
+            android:background="@color/common_google_signin_btn_text_light_disabled"/>
+        <RelativeLayout
+            android:id="@+id/center"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_40sdp"
+            android:layout_below="@id/border">
+            <ImageView
+                android:id="@+id/pin"
+                android:layout_width="@dimen/_20sdp"
+                android:layout_height="@dimen/_20sdp"
+                android:src="@drawable/pin_black"
+                android:layout_centerVertical="true"
+                android:padding="@dimen/_3sdp"
+                android:layout_marginStart="@dimen/_13sdp"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="2D Johar Mohr, Karachi"
+                android:textSize="@dimen/_13sdp"
+                android:fontFamily="@font/roboto"
+                android:textColor="@color/headingColor"
+                android:layout_centerVertical="true"
+                android:layout_toEndOf="@id/pin"
+                android:layout_marginStart="@dimen/_10sdp"
+                />
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/coin"
+                android:layout_toStartOf="@+id/price"
+                android:paddingVertical="@dimen/_10sdp"/>
+            <TextView
+                android:id="@+id/price"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="100 PKR"
+                android:textSize="@dimen/_15sdp"
+                android:fontFamily="@font/roboto"
+                android:textColor="@color/headingColor"
+                android:layout_centerVertical="true"
+                android:layout_alignParentRight="true"
+                android:layout_marginEnd="@dimen/_13sdp"
+                />
+        </RelativeLayout>
+        <View
+            android:id="@+id/border1"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_1sdp"
+            android:layout_below="@+id/center"
+            android:background="@color/common_google_signin_btn_text_light_disabled"/>
+        <Button
+            android:id="@+id/contact"
+            android:layout_width="@dimen/_280sdp"
+            android:layout_height="@dimen/_52sdp"
+            android:layout_below="@+id/center"
+            android:layout_centerHorizontal="true"
+            android:background="@drawable/btn_style"
+            android:fontFamily="@font/ubuntu_bold"
+            android:text="Contact Raees"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="@dimen/_18sdp"
+            android:layout_marginVertical="@dimen/_10sdp"
+            android:drawableRight="@drawable/phonecolored"
+            android:paddingHorizontal="@dimen/_25sdp"
+            />
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/contact"
+            android:gravity="center"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="@dimen/_10sdp">
+
+            <Button
+                android:id="@+id/cancel"
+                android:layout_width="@dimen/_220sdp"
+                android:layout_height="@dimen/_52sdp"
+                android:paddingStart="@dimen/_45sdp"
+                android:background="@drawable/half_btn"
+                android:fontFamily="@font/ubuntu_bold"
+                android:text="cancel"
+                android:textColor="@android:color/white"
+                />
+            <TextView
+                android:id="@+id/counter"
+                android:layout_width="@dimen/_60sdp"
+                android:layout_height="@dimen/_52sdp"
+                android:text="0:30s"
+                android:fontFamily="@font/ubuntu_bold"
+                android:textSize="@dimen/_16sdp"
+                android:layout_toEndOf="@+id/cancel"
+                android:background="@drawable/counter_btn"
+                android:textColor="@android:color/white"
+                android:gravity="center"
+                android:paddingEnd="@dimen/_15sdp"/>
+        </RelativeLayout>
+    </RelativeLayout>
+</RelativeLayout>

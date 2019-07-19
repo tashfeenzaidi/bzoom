@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white">
+
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_50sdp"
+        android:src="@drawable/icon_m"
+        android:layout_centerHorizontal="true"/>
+
+    <TextView
+        android:id="@+id/enter_number"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/ubuntu_bold"
+        android:text="Enter your email"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="@dimen/_20sdp"
+        android:layout_above="@+id/editText"
+        android:layout_marginStart="@dimen/_16sdp"
+        android:layout_marginBottom="@dimen/_18sdp"
+        />
+
+    <EditText
+        android:id="@+id/editText"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@drawable/edit_text_primary"
+        android:ems="10"
+        android:hint="Email"
+        android:inputType="phone"
+        android:textAlignment="viewStart"
+        android:textColorHint="@color/borderColor"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:layout_marginEnd="@dimen/_16sdp"
+        android:layout_marginStart="@dimen/_16sdp"/>
+
+    <Button
+        android:id="@+id/next"
+        style="@style/Widget.AppCompat.Button.Borderless.Colored"
+        android:layout_width="@dimen/_270sdp"
+        android:layout_height="@dimen/_50sdp"
+        android:layout_marginBottom="@dimen/_74sdp"
+        android:background="@drawable/btn"
+        android:fontFamily="@font/ubuntu_bold"
+        android:text="@string/next"
+        android:textColor="@android:color/white"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        />
+</RelativeLayout>

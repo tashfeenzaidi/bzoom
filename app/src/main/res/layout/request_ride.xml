@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/colorPrimary">
+
+
+    <TextView
+        android:id="@+id/textView8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_190sdp"
+        android:fontFamily="@font/ubuntu_bold"
+        android:text="Success!"
+        android:textColor="@android:color/white"
+        android:textSize="@dimen/_32sdp"
+        android:layout_centerHorizontal="true"/>
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView8"
+        android:layout_centerHorizontal="true">
+        <ImageView
+            android:id="@+id/calender"
+            android:layout_width="@dimen/_25sdp"
+            android:layout_height="@dimen/_25sdp"
+            android:src="@drawable/calender"
+            android:layout_margin="@dimen/_5sdp"
+            />
+
+        <TextView
+            android:id="@+id/time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toEndOf="@+id/calender"
+            android:text="12:05 "
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/_16sdp"
+            android:fontFamily="@font/roboto"
+            android:layout_margin="@dimen/_5sdp"
+            android:layout_alignBaseline="@+id/calender"
+            />
+        <ImageView
+            android:id="@+id/pin"
+            android:layout_width="@dimen/_25sdp"
+            android:layout_height="@dimen/_25sdp"
+            android:src="@drawable/pin_black"
+            android:layout_below="@+id/calender"
+            android:layout_margin="@dimen/_5sdp"
+             />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toEndOf="@+id/pin"
+            android:layout_below="@+id/time"
+            android:text="Gulshan "
+            android:layout_marginTop="@dimen/_10sdp"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/_16sdp"
+            android:fontFamily="@font/roboto"
+            android:layout_alignBaseline="@+id/pin"
+            />
+    </RelativeLayout>
+     
+    <Button
+        android:id="@+id/next"
+        style="@style/Widget.AppCompat.Button.Borderless.Colored"
+        android:layout_width="@dimen/_327sdp"
+        android:layout_height="@dimen/_57sdp"
+        android:layout_marginLeft="@dimen/_18sdp"
+        android:layout_marginRight="@dimen/_18sdp"
+        android:background="@drawable/btn"
+        android:fontFamily="@font/ubuntu_bold"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="@dimen/_40sdp"
+        android:text="Offline your car"
+        android:textColor="@android:color/white"
+        android:textSize="@dimen/_18sdp" />
+
+</RelativeLayout>
