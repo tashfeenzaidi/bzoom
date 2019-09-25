@@ -3,6 +3,7 @@ package com.example.bzoom;
 import android.app.Dialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.LayoutInflater;
@@ -16,6 +17,11 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.bzoom.Utility.Keystore;
+import com.example.bzoom.modal.firebase.AvailableCar;
+import com.example.bzoom.modal.firebase.retrofit.RetrofitClass;
+import com.example.bzoom.modules.map.DisagreeAgreement;
+
 import java.util.ArrayList;
 import java.util.zip.Inflater;
 
@@ -23,23 +29,31 @@ public class Belongins extends AppCompatActivity {
 
     String role;
     Button agree;
-    ArrayList<OwnerBelongings> belongingsArrayList;
+    public static ArrayList<OwnerBelongings> belongingsArrayList;
     private RecyclerView recyclerView;
     TextView warning;
+    Keystore keystore;
+    Button disagree;
+    private boolean isExist;
+    private boolean isEisxt;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.belongins);
 
-        agree = (Button) findViewById(R.id.agree);
-        warning = (TextView) findViewById(R.id.warning);
+        agree =  findViewById(R.id.agree);
+        disagree =  findViewById(R.id.disagree);
+        warning =  findViewById(R.id.warning);
         belongingsArrayList = new ArrayList<>();
+        keystore = Keystore.getInstance(this);
 
         Intent intent = getIntent();
         role= intent.getStringExtra("role");
         if (Role.role.equals("chauffeur")){
             warning.setText("Please verify carefully");
         }
+        agree.setText("Agreed");
     }
 
     @Override
@@ -47,112 +61,169 @@ public class Belongins extends AppCompatActivity {
         super.onStart();
 
 
-        recyclerView = findViewById(R.id.belongings_recycler);
-        recyclerView.setLayoutManager(new GridLayoutManager(this,1));
-        BelongingsRecyclerViewAddapter belongingsRecyclerViewAddapter= new BelongingsRecyclerViewAddapter(fillList(),this);
-        recyclerView.setAdapter(belongingsRecyclerViewAddapter);
+        new AsyncTask<Void,Void,Void>(){
+            @Override
+            protected Void doInBackground(Void... voids) {
 
-        if (Role.role.equals("chauffeur")){
-            agree.setText("Agreed");
-            agree.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    AlertDialog.Builder builder = new AlertDialog.Builder(Belongins.this);
-                    builder.setMessage("Did you receive the keys?")
-                    ;
-                    builder.setPositiveButton("Yes!", new DialogInterface.OnClickListener() {
-                        public void onClick(DialogInterface dialog, int id) {
-                            // User clicked OK button
-
-                            Intent intent = new Intent(Belongins.this,ChaufferSuccessActivity.class);
-                            startActivity(intent);
-
-//                        Intent intent = new Intent(Belongins.this,MainActivity.class);
-//                        startActivity(intent);
-                        }
-                    });
-                    builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
-                        public void onClick(DialogInterface dialog, int id) {
-                            // User clicked OK button
-
-                        }
-                    });
-                    AlertDialog dialog = builder.create();
-                    dialog.setCanceledOnTouchOutside(false);
-                    dialog.show();
+                if (keystore.get("role").equals("owner")){
+                    belongingsArrayList =  RetrofitClass.getAgreementByVehical("/get-agreemnt-by-vehicals/", AvailableCar.activeVehicalId,1);
+                }else if (keystore.get("role").equals("chauffeur")){
+                    belongingsArrayList =  RetrofitClass.getAgreementByVehical("/get-agreemnt-by-vehicals/", AvailableCar.activeVehicalId,0);
                 }
-            });
-        }else {
-            agree.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    AlertDialog.Builder builder = new AlertDialog.Builder(Belongins.this);
-                    builder.setMessage("Chauffer has arrived to return your belongings, did you recive it?")
-                    ;
-                    builder.setPositiveButton("Yes!", new DialogInterface.OnClickListener() {
-                        public void onClick(DialogInterface dialog, int id) {
-                            // User clicked OK button
+                return null;
+            }
 
-                            AlertDialog.Builder builder = new AlertDialog.Builder(Belongins.this);
-                            LayoutInflater li = LayoutInflater.from(Belongins.this);
-                            View promptsView = li.inflate(R.layout.submit_rating, null);
-                            builder.setView(promptsView);
+            @Override
+            protected void onPostExecute(Void aVoid) {
+                super.onPostExecute(aVoid);
+                recyclerView = findViewById(R.id.belongings_recycler);
+                recyclerView.setLayoutManager(new GridLayoutManager(Belongins.this,1));
+                BelongingsRecyclerViewAddapter belongingsRecyclerViewAddapter= new BelongingsRecyclerViewAddapter(belongingsArrayList,Belongins.this,true);
+                recyclerView.setAdapter(belongingsRecyclerViewAddapter);
+            }
+        }.execute();
 
-                            // create alert dialog
-                            AlertDialog alertDialog = builder.create();
+//        if (Role.role.equals("chauffeur")){
+//            agree.setText("Agreed");
+//
+//            agree.setOnClickListener(new View.OnClickListener() {
+//                @Override
+//                public void onClick(View v) {
+//
+//
+//
+//                    new AsyncTask<Void,Void,Void>(){
+//                        @Override
+//                        protected Void doInBackground(Void... voids) {
+//
+//                            isExist = RetrofitClass.notification("/change_booking_status_to_notify",getString(R.string.agreement_accepted),17);
+//                            return null;
+//                        }
+//
+//                        @Override
+//                        protected void onPostExecute(Void aVoid) {
+//                            super.onPostExecute(aVoid);
+//                            if (isExist){
+//
+//                            }
+//
+//                        }
+//                    }.execute();
+//
+////                    AlertDialog.Builder builder = new AlertDialog.Builder(Belongins.this);
+////                    builder.setMessage("Did you receive the keys?")
+////                    ;
+////                    builder.setPositiveButton("Yes!", new DialogInterface.OnClickListener() {
+////                        public void onClick(DialogInterface dialog, int id) {
+////                            // User clicked OK button
+////
+////                            Intent intent = new Intent(Belongins.this,ChaufferSuccessActivity.class);
+////                            startActivity(intent);
+////
+//////                        Intent intent = new Intent(Belongins.this,MainActivity.class);
+//////                        startActivity(intent);
+////                        }
+////                    });
+////                    builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+////                        public void onClick(DialogInterface dialog, int id) {
+////                            // User clicked OK button
+////
+////                        }
+////                    });
+////                    AlertDialog dialog = builder.create();
+////                    dialog.setCanceledOnTouchOutside(false);
+////                    dialog.show();
+//                }
+//            });
+//        }else {
+//            agree.setOnClickListener(new View.OnClickListener() {
+//                @Override
+//                public void onClick(View v) {
+//
+//                    AlertDialog.Builder builder = new AlertDialog.Builder(Belongins.this);
+//                    builder.setMessage("Chauffer has arrived to return your belongings, did you recive it?")
+//                    ;
+//                    builder.setPositiveButton("Yes!", new DialogInterface.OnClickListener() {
+//                        public void onClick(DialogInterface dialog, int id) {
+//                            // User clicked OK button
+//
+//                            AlertDialog.Builder builder = new AlertDialog.Builder(Belongins.this);
+//                            LayoutInflater li = LayoutInflater.from(Belongins.this);
+//                            View promptsView = li.inflate(R.layout.submit_rating, null);
+//                            builder.setView(promptsView);
+//
+//                            // create alert dialog
+//                            AlertDialog alertDialog = builder.create();
+//
+//                            // show it
+//                            alertDialog.show();
+//
+////                        Intent intent = new Intent(Belongins.this,MainActivity.class);
+////                        startActivity(intent);
+//                        }
+//                    });
+//                    builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+//                        public void onClick(DialogInterface dialog, int id) {
+//                            // User clicked OK button
+//                            Intent intent = new Intent(Belongins.this,MainActivity.class);
+//                            startActivity(intent);
+//                        }
+//                    });
+//                    AlertDialog dialog = builder.create();
+//                    dialog.setCanceledOnTouchOutside(false);
+//                    dialog.show();
+//                }
+//            });
+//        }
 
-                            // show it
-                            alertDialog.show();
+        agree.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
 
-//                        Intent intent = new Intent(Belongins.this,MainActivity.class);
-//                        startActivity(intent);
+                if (keystore.get("role").equals("chauffeur")){
+
+                    new AsyncTask<Void,Void,Void>(){
+                        @Override
+                        protected Void doInBackground(Void... voids) {
+
+                            isExist = RetrofitClass.notification("/change_booking_status_to_notify",getString(R.string.agreement_accepted),17);
+                            return null;
                         }
-                    });
-                    builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
-                        public void onClick(DialogInterface dialog, int id) {
-                            // User clicked OK button
-                            Intent intent = new Intent(Belongins.this,MainActivity.class);
-                            startActivity(intent);
+
+                        @Override
+                        protected void onPostExecute(Void aVoid) {
+                            super.onPostExecute(aVoid);
+                            if (isExist){
+
+                            }
+
                         }
-                    });
-                    AlertDialog dialog = builder.create();
-                    dialog.setCanceledOnTouchOutside(false);
-                    dialog.show();
+                    }.execute();
                 }
-            });
-        }
+                else if (keystore.get("role").equals("owner")){
+                    new AsyncTask<Void,Void,Void>(){
+                        @Override
+                        protected Void doInBackground(Void... voids) {
+                            isEisxt = RetrofitClass.notification("/change_booking_status_to_notify","Return key to owner",24);
+                            return null;
+                        }
+                        @Override
+                        protected void onPostExecute(Void aVoid) {
+                            super.onPostExecute(aVoid);
+                            if (isEisxt){
+                            }
+                        }
+                    }.execute();
 
+                }
+            }
+        });
 
-//        Handler mHandler = new Handler();
-//        mHandler.postDelayed(new Runnable() {
-//
-//            @Override
-//            public void run() {
-//
-////              showDialog(RideStartActivity.this,R.string.dialog_message,"");
-//
-//            }
-//
-//        }, 2000L);
+        disagree.setOnClickListener(v -> {
+            Intent intent = new Intent(Belongins.this, DisagreeAgreement.class);
+            startActivity(intent);
 
+        });
     }
 
-    public ArrayList<OwnerBelongings> fillList(){
-
-
-        OwnerBelongings ownerBelongings = new OwnerBelongings(true,"AC");
-        OwnerBelongings ownerBelongings1 = new OwnerBelongings(false,"AC");
-        OwnerBelongings ownerBelongings2 = new OwnerBelongings(true,"AC");
-        OwnerBelongings ownerBelongings3 = new OwnerBelongings(false,"AC");
-        OwnerBelongings ownerBelongings4 = new OwnerBelongings(true,"AC");
-        OwnerBelongings ownerBelongings5 = new OwnerBelongings(false,"AC");
-        belongingsArrayList.add(ownerBelongings);
-        belongingsArrayList.add(ownerBelongings1);
-        belongingsArrayList.add(ownerBelongings2);
-        belongingsArrayList.add(ownerBelongings3);
-        belongingsArrayList.add(ownerBelongings4);
-        belongingsArrayList.add(ownerBelongings5);
-
-        return belongingsArrayList;
-    }
 }

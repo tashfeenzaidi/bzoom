@@ -33,7 +33,7 @@
         android:background="@drawable/edit_text_primary"
         android:ems="10"
         android:hint="Name"
-        android:inputType="phone"
+        android:inputType="text"
         android:textAlignment="viewStart"
         android:textColorHint="@color/borderColor"
         android:layout_centerHorizontal="true"

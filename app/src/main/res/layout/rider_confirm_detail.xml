@@ -6,7 +6,7 @@
     android:background="@android:color/white">
 
 
-    <android.support.v7.widget.Toolbar
+    <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
@@ -34,7 +34,7 @@
                 android:textSize="@dimen/_18sdp"/>
 
 
-    </android.support.v7.widget.Toolbar>
+    </androidx.appcompat.widget.Toolbar>
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -72,6 +72,7 @@
                     android:layout_marginHorizontal="@dimen/_20sdp"
                     android:layout_centerVertical="true"/>
                 <TextView
+                    android:id="@+id/destination"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="243 Meat  Cheese"
@@ -132,7 +133,7 @@
                         android:layout_width="fill_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/_5sdp"
-                        android:visibility="gone"
+                        android:visibility="visible"
                         >
 
                         <RelativeLayout
@@ -160,6 +161,7 @@
                                 android:textSize="@dimen/_16sdp" />
 
                             <TextView
+                                android:id="@+id/on_day"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_below="@+id/number"
@@ -201,6 +203,7 @@
                                 android:textColor="@color/colorPrimary"/>
                             />
                             <TextView
+                                android:id="@+id/till_day"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="MONDAY"
@@ -243,6 +246,7 @@
                                 android:textColor="@color/colorPrimary"/>
                             />
                             <TextView
+                                android:id="@+id/am_pm"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="AM"

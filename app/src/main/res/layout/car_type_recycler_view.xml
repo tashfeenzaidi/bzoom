@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal" android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@android:color/transparent">
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/micro"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/microdim"
+            android:background="@android:color/transparent"
+            android:layout_centerVertical="true"
+            android:maxHeight="@dimen/_10sdp"
+            android:maxWidth="@dimen/_10sdp"/>
+
+        <TextView
+            android:id="@+id/price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/micro"
+            android:fontFamily="@font/roboto_bold"
+            android:textSize="@dimen/_10sdp"
+            android:textColor="@color/headingColor"
+            android:text="70PKR"
+            android:layout_centerHorizontal="true"
+           />
+
+        <TextView
+            android:id="@+id/time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/price"
+            android:fontFamily="@font/roboto"
+            android:textSize="@dimen/_7sdp"
+            android:textColor="@color/headingColor"
+            android:text="5 mins"
+            android:layout_centerHorizontal="true"/>
+
+    </RelativeLayout>
+
+</RelativeLayout>

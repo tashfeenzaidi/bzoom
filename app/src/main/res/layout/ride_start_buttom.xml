@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:background="@android:color/white"
     android:id="@+id/buttom_ride_start">
 
@@ -41,7 +41,8 @@
         android:text="arrival time: 13:25"
         android:textColor="@color/subtextColor"
         android:textSize="@dimen/_8sdp"
-        android:layout_toEndOf="@+id/imageView4"/>
+        android:layout_toEndOf="@+id/imageView4"
+        android:visibility="invisible"/>
 
     <View
         android:id="@+id/view_firstName"
@@ -57,7 +58,7 @@
         android:layout_height="@dimen/_52sdp"
         android:layout_below="@+id/view_firstName"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="@dimen/_13sdp"
+        android:layout_margin="@dimen/_13sdp"
         android:background="@drawable/btn_style"
         android:fontFamily="@font/ubuntu_bold_sec"
         android:text="View profile"

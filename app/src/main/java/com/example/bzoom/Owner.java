@@ -7,6 +7,11 @@ public class Owner {
     String address;
     String car;
     double rating;
+    double lat;
+    double lon;
+
+    public Owner() {
+    }
 
     public Owner(String name, String number, String address, String car, double rating) {
         this.name = name;

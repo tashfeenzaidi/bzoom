@@ -7,20 +7,24 @@ import android.os.Handler;
 import android.view.View;
 import android.widget.TextView;
 
+import com.example.bzoom.Utility.Keystore;
+import com.example.bzoom.modal.firebase.Firebase;
+
 import pl.tajchert.waitingdots.DotsTextView;
 
 public class ChaufferSuccessActivity extends Activity {
 
     TextView text;
     DotsTextView dots;
-
+    Keystore keystore;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_chauffer_success);
-
-        text = (TextView) findViewById(R.id.text);
-        dots = (DotsTextView) findViewById(R.id.dots);
+        keystore = Keystore.getInstance(this);
+        keystore.putString("chauffeurTopicSubs",CarType.activeCarTopicName);
+        text =  findViewById(R.id.text);
+        dots =  findViewById(R.id.dots);
         final Handler handler = new Handler();
         dots.start();
         Handler mHandler = new Handler();
@@ -29,8 +33,11 @@ public class ChaufferSuccessActivity extends Activity {
             @Override
             public void run() {
                 Role.status = true;
-                Intent intent = new Intent(ChaufferSuccessActivity.this,MainActivity.class);
-                startActivity(intent);
+                Firebase.subscribeToTopic("chauffeur");
+                if (Firebase.subscribeToTopic(CarType.activeCarTopicName)){
+                    Intent intent = new Intent(ChaufferSuccessActivity.this,MainActivity.class);
+                    startActivity(intent);
+                }
 
             }
 

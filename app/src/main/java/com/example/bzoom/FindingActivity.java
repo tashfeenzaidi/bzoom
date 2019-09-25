@@ -50,14 +50,14 @@ public class FindingActivity extends AppCompatActivity implements OnMapReadyCall
     protected void onStart() {
         super.onStart();
 
-        Handler handler = new Handler();
-        handler.postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                Intent intent = new Intent(FindingActivity.this,DriverConnected.class);
-                startActivity(intent);
-            }
-        },2000L);
+//        Handler handler = new Handler();
+//        handler.postDelayed(new Runnable() {
+//            @Override
+//            public void run() {
+//                Intent intent = new Intent(FindingActivity.this,DriverConnected.class);
+//                startActivity(intent);
+//            }
+//        },2000L);
 
         cancel.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -2,46 +2,77 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@android:color/white">
+    android:background="@android:color/white"
+    >
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/top"
         android:background="@color/colorPrimary"
-        android:layout_marginBottom="@dimen/_10sdp">
-        <TextView
-            android:id="@+id/away"
-            android:layout_width="wrap_content"
+        android:layout_marginBottom="@dimen/_10sdp"
+        android:layout_alignParentTop="true">
+        <RelativeLayout
+            android:id="@+id/mid"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="6 min away"
-            android:textSize="@dimen/_18sdp"
-            android:fontFamily="@font/roboto"
-            android:textColor="@color/headingColor"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="@dimen/_10sdp"/>
+            android:gravity="center">
+            <TextView
+                android:id="@+id/away"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="min away"
+                android:textSize="@dimen/_18sdp"
+                android:fontFamily="@font/roboto"
+                android:textColor="@color/headingColor"
+                android:layout_marginTop="@dimen/_10sdp"/>
+            <TextView
+                android:id="@+id/time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="6 "
+                android:textSize="@dimen/_18sdp"
+                android:fontFamily="@font/roboto"
+                android:textColor="@color/headingColor"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:layout_toStartOf="@+id/away"
+                android:layout_marginEnd="@dimen/_5sdp"/>
+        </RelativeLayout>
 
-        <TextView
-            android:id="@+id/trip"
-            android:layout_width="wrap_content"
+        <RelativeLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Long trip (45+ min)"
-            android:textSize="@dimen/_18sdp"
-            android:fontFamily="@font/roboto"
-            android:textColor="@color/headingColor"
-            android:layout_centerHorizontal="true"
-            android:layout_below="@+id/away"
-            android:layout_margin="@dimen/_10sdp"/>
+            android:layout_below="@+id/mid"
+            android:gravity="center">
+            <TextView
+                android:id="@+id/trip"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Long trip"
+                android:textSize="@dimen/_18sdp"
+                android:fontFamily="@font/roboto"
+                android:textColor="@color/headingColor"
+                android:layout_margin="@dimen/_10sdp"
+                android:layout_toStartOf="@+id/trip_time"/>
+            <TextView
+                android:id="@+id/trip_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="(45+ min)"
+                android:textSize="@dimen/_18sdp"
+                android:fontFamily="@font/roboto"
+                android:textColor="@color/headingColor"
+                android:layout_marginVertical="@dimen/_10sdp"/>
+        </RelativeLayout>
+
     </RelativeLayout>
 
-    <fragment xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:tools="http://schemas.android.com/tools"
-        android:id="@+id/map_cor"
-        android:layout_below="@+id/top"
-        android:name="com.google.android.gms.maps.SupportMapFragment"
+    <FrameLayout
+        android:id="@+id/map"
         android:layout_width="match_parent"
         android:layout_height="@dimen/_200sdp"
-        tools:context="com.example.currentplacedetailsonmap.MapsActivityCurrentPlace" />
+        android:layout_below="@+id/top">
+    </FrameLayout>
     <Button
         android:id="@+id/next"
         android:layout_width="327dp"
@@ -51,8 +82,8 @@
         android:text="Tap to accept"
         android:textColor="@android:color/white"
         android:layout_centerHorizontal="true"
+        android:layout_below="@+id/map"
         android:layout_margin="@dimen/_10sdp"
-        android:layout_below="@+id/map_cor"
         />
     <ProgressBar
         android:id="@+id/progress"

@@ -49,7 +49,7 @@
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
-                <android.support.v7.widget.CardView
+                <androidx.cardview.widget.CardView
                     android:id="@+id/uppercard"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/_70sdp"
@@ -156,8 +156,8 @@
 
 
                     </RelativeLayout>
-                </android.support.v7.widget.CardView>
-                <android.support.v7.widget.CardView
+                </androidx.cardview.widget.CardView>
+                <androidx.cardview.widget.CardView
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/_200sdp"
                     android:layout_marginLeft="@dimen/_20sdp"
@@ -283,7 +283,7 @@
                     </RelativeLayout>
 
 
-                </android.support.v7.widget.CardView>
+                </androidx.cardview.widget.CardView>
 
 
 

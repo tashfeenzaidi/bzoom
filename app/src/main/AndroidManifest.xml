@@ -24,6 +24,8 @@
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.VIBRATE" />
     <uses-permission android:name="android.permission.CALL_PHONE"/>
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+
 
     <uses-feature android:name="android.hardware.camera" />
     <uses-feature
@@ -89,29 +91,38 @@
         <activity
             android:name=".MapsActivity"
             android:label="@string/title_activity_maps" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity android:name=".RideStartActivity" />
         <activity
             android:name=".RequestRide"
             android:label="Request_Code" />
-        <activity android:name=".MainActivity" />
+        <activity android:name=".MainActivity" >
+
+        </activity>
         <activity android:name=".NavigationActivity">
 
         </activity>
         <activity android:name=".Belongins" />
         <activity android:name=".RiderRideStarted" />
-        <activity android:name=".DriverConnected" />
+        <activity android:name=".DriverConnected" >
+
+        </activity>
         <activity android:name=".Otp" />
         <activity android:name=".Verified" />
         <activity android:name=".Name" />
-        <activity android:name=".Email" />
-        <activity android:name=".ConfirmDetail" />
+        <activity android:name=".Email" >
 
+        </activity>
+        <activity android:name=".modules.map.MainActivity" >
+
+        </activity>
+        <activity android:name=".Test" >
+
+        </activity>
+        <activity android:name=".ConfirmDetail" >
+
+        </activity>
 
         <activity
             android:name=".TrackActivity"
@@ -130,20 +141,53 @@
 
         </activity>
         <activity android:name=".Splash_Screen">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
         <activity android:name=".ReturnCarToOwner">
 
         </activity>
+        <activity android:name=".RequestAlertDialogActivity"
+            android:excludeFromRecents="true"
+            android:theme="@style/ActivityDialogTheme">
+
+        </activity>
         <activity android:name=".ChaufferEndTime" />
-
-        <!--<service-->
-            <!--android:name=".FetchAddressIntentService"-->
-            <!--android:exported="false"/>-->
-
+        <activity android:name=".modules.map.DisagreeAgreement" />
+        <receiver
+            android:name=".modules.map.TimeEnded"
+            android:enabled="true"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+            </intent-filter>
+        </receiver>
+        <activity android:name=".Utility.InAppNotification"
+            android:excludeFromRecents="true"
+            android:theme="@style/ActivityDialogTheme"/>
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
+        <meta-data
+            android:name="com.google.firebase.messaging.default_notification_icon"
+            android:resource="@drawable/icon" />
+        <service android:name=".modal.firebase.MessageService"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+            </intent-filter>
+        </service>
+        <receiver
+            android:name=".modules.map.chauffeur.ChauffeurTimeFinish"
+            android:enabled="true"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+            </intent-filter>
+        </receiver>
     </application>
 
 </manifest>

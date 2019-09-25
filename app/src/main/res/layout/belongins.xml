@@ -68,11 +68,11 @@
         android:layout_marginBottom="@dimen/_70sdp"
         >
 
-        <android.support.v7.widget.RecyclerView
+        <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/belongings_recycler"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@android:color/white"></android.support.v7.widget.RecyclerView>
+            android:background="@android:color/white"/>
     </RelativeLayout>
     <RelativeLayout
         android:id="@+id/end"
@@ -85,14 +85,28 @@
 
         <Button
             android:id="@+id/agree"
-            android:layout_width="327dp"
-            android:layout_height="57dp"
-            android:layout_centerHorizontal="true"
+            android:layout_width="@dimen/_150sdp"
+            android:layout_height="@dimen/_45sdp"
             android:background="@drawable/btn"
             android:fontFamily="@font/roboto"
             android:text="Next"
             android:textColor="@android:color/white"
             android:textSize="@dimen/_16sdp"
+            android:layout_toEndOf="@+id/disagree"
+            android:layout_marginHorizontal="@dimen/_5sdp"
+
+            />
+
+        <Button
+            android:id="@+id/disagree"
+            android:layout_width="@dimen/_150sdp"
+            android:layout_height="@dimen/_45sdp"
+            android:background="@drawable/btn"
+            android:fontFamily="@font/roboto"
+            android:text="Disagree"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/_16sdp"
+            android:layout_marginHorizontal="@dimen/_5sdp"
             />
     </RelativeLayout>
 

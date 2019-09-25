@@ -12,6 +12,7 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.chaos.view.PinView;
+import com.example.bzoom.Utility.General;
 import com.example.bzoom.Utility.Keystore;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -21,6 +22,8 @@ import com.google.firebase.FirebaseException;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.auth.GetTokenResult;
 import com.google.firebase.auth.PhoneAuthCredential;
 import com.google.firebase.auth.PhoneAuthProvider;
 
@@ -50,28 +53,26 @@ public class Otp extends AppCompatActivity {
         store = Keystore.getInstance(Otp.this);
         //initializing objects
         mAuth = FirebaseAuth.getInstance();
+
+
         editTextCode = findViewById(R.id.pinView);
 
 
         sendVerificationCode(store.get("phone_number"));
 
-        Button btn = (Button) findViewById(R.id.next);
-        btn.setOnClickListener(new View.OnClickListener(){
+        Button btn =  findViewById(R.id.next);
+        btn.setOnClickListener(v -> {
 
-            @Override
-            public void onClick(View v) {
-
-                String code = Objects.requireNonNull(editTextCode.getText()).toString();
-                if (code.isEmpty() || code.length() < 6) {
-                    editTextCode.setError("Enter valid code");
-                    editTextCode.requestFocus();
-                    return;
-                }
-
-                //verifying the code entered manually
-                verifyVerificationCode(code);
-
+            String code = Objects.requireNonNull(editTextCode.getText()).toString();
+            if (code.isEmpty() || code.length() < 6) {
+                editTextCode.setError("Enter valid code");
+                editTextCode.requestFocus();
+                return;
             }
+
+            //verifying the code entered manually
+            verifyVerificationCode(code);
+
         });
     }
 
@@ -132,34 +133,49 @@ public class Otp extends AppCompatActivity {
 
     private void signInWithPhoneAuthCredential(PhoneAuthCredential credential) {
         mAuth.signInWithCredential(credential)
-                .addOnCompleteListener(Otp.this, new OnCompleteListener<AuthResult>() {
-                    @Override
-                    public void onComplete(@NonNull Task<AuthResult> task) {
-                        if (task.isSuccessful()) {
-                            //verification successful we will start the profile activity
-                            Intent intent = new Intent(Otp.this, Verified.class);
-                            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-                            startActivity(intent);
+                .addOnCompleteListener(Otp.this, task -> {
+                    if (task.isSuccessful()) {
+                        //verification successful we will start the profile activity
+                        Intent intent = new Intent(Otp.this, Verified.class);
+                        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                        String uid= FirebaseAuth.getInstance().getCurrentUser().getUid();
+                        General.setUserUid(uid);
+                        store.putString("UID",uid);
+                        FirebaseUser mUser = FirebaseAuth.getInstance().getCurrentUser();
+                        mUser.getIdToken(true)
+                                .addOnCompleteListener(task1 -> {
+                                    if (task1.isSuccessful()) {
+                                        String idToken = task1.getResult().getToken();
+                                        store.putString("userToken",idToken);
+                                        General.setUserToken(idToken);
+                                        // Send token to your backend via HTTPS
+                                        // ...
+                                    } else {
+                                        // Handle error -> task.getException();
+                                    }
+                                });
 
-                        } else {
+                        startActivity(intent);
+                        finish();
 
-                            //verification unsuccessful.. display an error message
+                    } else {
 
-                            String message = "Somthing is wrong, we will fix it soon...";
+                        //verification unsuccessful.. display an error message
+                        String message = "Somthing is wrong, we will fix it soon...";
 
-                            if (task.getException() instanceof FirebaseAuthInvalidCredentialsException) {
-                                message = "Invalid code entered...";
-                            }
-
-                            Snackbar snackbar = Snackbar.make(findViewById(R.id.parent), message, Snackbar.LENGTH_LONG);
-                            snackbar.setAction("Dismiss", new View.OnClickListener() {
-                                @Override
-                                public void onClick(View v) {
-
-                                }
-                            });
-                            snackbar.show();
+                        if (task.getException() instanceof FirebaseAuthInvalidCredentialsException) {
+                            message = "Invalid code entered...";
                         }
+                        Toast.makeText(Otp.this, message, Toast.LENGTH_LONG).show();
+
+//                            Snackbar snackbar = Snackbar.make(findViewById(R.id.parent), message, Snackbar.LENGTH_LONG);
+//                            snackbar.setAction("Dismiss", new View.OnClickListener() {
+//                                @Override
+//                                public void onClick(View v) {
+//
+//                                }
+//                            });
+//                            snackbar.show();
                     }
                 });
     }

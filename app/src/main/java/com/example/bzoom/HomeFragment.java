@@ -2,6 +2,7 @@ package com.example.bzoom;
 
 import android.content.Context;
 import android.net.Uri;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,7 +12,14 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.example.bzoom.Utility.Keystore;
+import com.example.bzoom.modal.firebase.retrofit.RetrofitClass;
+import com.example.bzoom.modules.map.driver.Vehical;
+
+import org.json.JSONArray;
 
 import java.util.ArrayList;
 
@@ -34,11 +42,13 @@ public class HomeFragment extends Fragment {
     private CarsListRecyclerViewAdapter carsListRecyclerViewAdapter;
     private RecyclerView.LayoutManager layoutManager;
 
+
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
 
     private OnFragmentInteractionListener mListener;
+    private Keystore keystore;
 
     public HomeFragment() {
         // Required empty public constructor
@@ -65,11 +75,13 @@ public class HomeFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         cars = new ArrayList<>();
         if (getArguments() != null) {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
+        keystore = Keystore.getInstance(getContext());
     }
 
     @Override
@@ -83,10 +95,27 @@ public class HomeFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         //  Car Recycler view
-        recyclerView = view.findViewById(R.id.cars_recycler);
-        recyclerView.setLayoutManager(new GridLayoutManager(getActivity(),1));
-        carsListRecyclerViewAdapter = new CarsListRecyclerViewAdapter(getActivity(),Cars_list());
-        recyclerView.setAdapter(carsListRecyclerViewAdapter);
+        new AsyncTask<Void,Void,Void>(){
+
+            @Override
+            protected Void doInBackground(Void... voids) {
+
+                cars = RetrofitClass.getDriverVehicalData("/get-owner-vehicals",keystore.get("userId"));
+                return null;
+            }
+
+            @Override
+            protected void onPostExecute(Void aVoid) {
+                super.onPostExecute(aVoid);
+                if (!cars.isEmpty()){
+                    recyclerView = view.findViewById(R.id.cars_recycler);
+                    recyclerView.setLayoutManager(new GridLayoutManager(getActivity(),1));
+                    carsListRecyclerViewAdapter = new CarsListRecyclerViewAdapter(getActivity(),cars);
+                    recyclerView.setAdapter(carsListRecyclerViewAdapter);
+                }
+            }
+        }.execute();
+
     }
 
     // TODO: Rename method, update argument and hook method into UI event
@@ -117,21 +146,5 @@ public class HomeFragment extends Fragment {
     public interface OnFragmentInteractionListener {
         // TODO: Update argument type and name
         void onFragmentInteraction(Uri uri);
-    }
-    public ArrayList<Car> Cars_list(){
-
-        Car car  = new Car("Faw",4,"165jfyu","blue",1);
-        Car car1  = new Car("Faw",3,"165jfyu","blue",1);
-        Car car3  = new Car("Faw",4,"165jfyu","blue",0);
-        Car car4  = new Car("Faw",2,"165jfyu","blue",0);
-        Car car5  = new Car("Faw",5,"165jfyu","blue",1);
-
-
-        cars.add(car);
-        cars.add(car1);
-        cars.add(car3);
-        cars.add(car4);
-        cars.add(car5);
-        return cars ;
     }
 }

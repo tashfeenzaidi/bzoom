@@ -33,7 +33,7 @@ public class CarsListRecyclerViewAdapter extends RecyclerView.Adapter<CarsListRe
     @Override
     public void onBindViewHolder(@NonNull CarsListRecyclerViewAdapter.ViewHolder viewHolder, int i) {
 
-        CarsListRecyclerViewAdapter.ViewHolder viewHolder1 = (CarsListRecyclerViewAdapter.ViewHolder)viewHolder;
+        CarsListRecyclerViewAdapter.ViewHolder viewHolder1 = viewHolder;
         Car car = cars.get(i);
         if(!cars.isEmpty()){
 
@@ -41,6 +41,7 @@ public class CarsListRecyclerViewAdapter extends RecyclerView.Adapter<CarsListRe
             viewHolder1.Img.setImageResource(R.drawable.car1);
             viewHolder1.rating.setText( String.valueOf(car.getRating()));
             viewHolder1.ratingBar.setRating(car.getRating());
+            viewHolder1.carDetail.setText(car.getCarModal()+" "+car.getNumber()+" "+car.getColor());
             if(car.status == 1){
                 viewHolder1.status.setText("on duty");
                 viewHolder1.status.setTextColor(Color.parseColor("#006400"));
@@ -60,6 +61,7 @@ public class CarsListRecyclerViewAdapter extends RecyclerView.Adapter<CarsListRe
         public TextView name;
         public ImageView Img;
         public TextView rating;
+        public TextView carDetail;
         public RatingBar ratingBar;
         public TextView status;
 
@@ -67,11 +69,12 @@ public class CarsListRecyclerViewAdapter extends RecyclerView.Adapter<CarsListRe
             super(view);
 
             view.setOnClickListener(this);
-            name = (TextView) view.findViewById(R.id.name);
-            Img= (ImageView) view.findViewById(R.id.image_rv);
-            rating = (TextView) view.findViewById(R.id.textView3);
-            ratingBar = (RatingBar) view.findViewById(R.id.ratingBar);
-            status = (TextView) view.findViewById(R.id.textView2);
+            name =  view.findViewById(R.id.name);
+            Img=  view.findViewById(R.id.image_rv);
+            rating =  view.findViewById(R.id.textView3);
+            carDetail =  view.findViewById(R.id.txtph);
+            ratingBar =  view.findViewById(R.id.ratingBar);
+            status =  view.findViewById(R.id.textView2);
         }
 
         @Override
@@ -80,19 +83,10 @@ public class CarsListRecyclerViewAdapter extends RecyclerView.Adapter<CarsListRe
             int position = getAdapterPosition();
             if (position != RecyclerView.NO_POSITION)
             {
-
+                Car car = cars.get(position);
+                Car.activeCarId = car.getCarId();
                 Intent intent = new Intent(context,PickupLocationActivity.class);
                 context.startActivity(intent);
-//                AppCompatActivity activity = (AppCompatActivity) v.getContext();
-//                Fragment myFragment = new MapFragment();
-//                activity.getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, myFragment).addToBackStack(null).commit();
-//                Fragment someFragment = new MapFragment();
-//                FragmentManager fragmentManager = getSupportFragmentManager();
-//
-//                FragmentTransaction transaction = getFragmentManager().beginTransaction();
-//                transaction.replace(R.id.cars_recycler, someFragment ); // give your fragment container id in first parameter
-//                transaction.addToBackStack(null);  // if written, this transaction will be added to backstack
-//                transaction.commit();
             }
         }
     }

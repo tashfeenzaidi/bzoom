@@ -7,6 +7,7 @@ import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.bzoom.Utility.General;
 import com.example.bzoom.Utility.Keystore;
 
 public class Login extends AppCompatActivity {
@@ -22,50 +23,47 @@ public class Login extends AppCompatActivity {
         setContentView(R.layout.activity_login);
 
         store = Keystore.getInstance(Login.this);
+        store.putInt("signup",0);
+        driver =  findViewById(R.id.driver);
 
-        driver = (Button) findViewById(R.id.driver);
+        btn =  findViewById(R.id.owner);
+        btn.setOnClickListener(v -> {
+            Role.role = "owner";
+            store.putString("role","owner");
+            General.setRole("owner");
+            startActivity();
 
-        btn = (Button) findViewById(R.id.owner);
-        btn.setOnClickListener(new View.OnClickListener(){
 
-            @Override
-            public void onClick(View v) {
-                Role.role = "owner";
-                startActivity();
-
-            }
         });
-        chauffer = (Button) findViewById(R.id.chauffeur);
-        chauffer.setOnClickListener(new View.OnClickListener(){
+        chauffer =  findViewById(R.id.chauffeur);
+        chauffer.setOnClickListener(v -> {
+            Role.role = "chauffeur";
+            store.putString("role","chauffeur");
+            General.setRole("chauffeur");
 
-            @Override
-            public void onClick(View v) {
-                Role.role = "chauffeur";
-                startActivity();
+            startActivity();
 
-            }
-        });
 
-        rider = (Button) findViewById(R.id.rider);
-        rider.setOnClickListener(new View.OnClickListener(){
-
-            @Override
-            public void onClick(View v) {
-                Role.role = "rider";
-                startActivity();
-
-            }
         });
 
-        driver.setOnClickListener(new View.OnClickListener(){
-
-            @Override
-            public void onClick(View v) {
-                Role.role = "driver";
-                store.putString("role","rider");
-                startActivity();
-            }
+        rider =  findViewById(R.id.rider);
+        rider.setOnClickListener(v -> {
+            Role.role = "rider";
+            store.putString("role","rider");
+            General.setRole("rider");
+            store.putInt("signup",1);
+            startActivity();
         });
+
+        driver.setOnClickListener(v -> {
+            Role.role = "driver";
+            store.putString("role","driver");
+            General.setRole("driver");
+            startActivity();
+
+        });
+
+
 
 
     }
@@ -74,4 +72,5 @@ public class Login extends AppCompatActivity {
         intent = new Intent(Login.this,MobileActivity.class);
         startActivity(intent);
     }
+
 }

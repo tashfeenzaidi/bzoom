@@ -76,7 +76,7 @@
                 android:padding="@dimen/_5sdp"
                 android:text="1:16"
                 android:textColor="@color/common_google_signin_btn_text_dark_focused"
-                android:textSize="@dimen/_30sdp" />
+                android:textSize="@dimen/_20sdp" />
 
             <TextView
                 android:id="@+id/ampm"
@@ -87,7 +87,7 @@
                 android:fontFamily="@font/roboto"
                 android:text="AM"
                 android:textColor="@color/common_google_signin_btn_text_dark_focused"
-                android:textSize="@dimen/_30sdp" />
+                android:textSize="@dimen/_20sdp" />
         </RelativeLayout>
 
 

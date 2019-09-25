@@ -22,43 +22,122 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/textView8"
-        android:layout_centerHorizontal="true">
-        <ImageView
-            android:id="@+id/calender"
-            android:layout_width="@dimen/_25sdp"
-            android:layout_height="@dimen/_25sdp"
-            android:src="@drawable/calender"
-            android:layout_margin="@dimen/_5sdp"
-            />
+        android:layout_centerHorizontal="true"
+        android:layout_marginHorizontal="@dimen/_20sdp">
 
-        <TextView
-            android:id="@+id/time"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_toEndOf="@+id/calender"
-            android:text="12:05 "
-            android:textColor="@android:color/white"
-            android:textSize="@dimen/_16sdp"
-            android:fontFamily="@font/roboto"
-            android:layout_margin="@dimen/_5sdp"
-            android:layout_alignBaseline="@+id/calender"
-            />
+
+
+            <RelativeLayout
+                android:id="@+id/center"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toEndOf="@+id/img"
+                android:layout_toStartOf="@+id/end"
+                android:layout_marginHorizontal="@dimen/_50sdp"
+                >
+
+                <TextView
+                    android:id="@+id/startLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="#00000000"
+                    android:text="Start Date: "
+                    android:fontFamily="@font/roboto"
+                    android:textColor="@color/headingColor"
+                    android:textSize="@dimen/_13sdp"
+                    android:layout_marginTop="@dimen/_12sdp"
+
+                    />
+                <TextView
+                    android:id="@+id/source"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_12sdp"
+                    android:layout_marginEnd="@dimen/_12sdp"
+                    android:layout_marginBottom="@dimen/_12sdp"
+                    android:background="#00000000"
+                    android:layout_toEndOf="@+id/startLabel"
+                    android:fontFamily="@font/roboto"
+                    android:hint="Strat time"
+                    android:textColor="@color/headingColor"
+                    android:textSize="@dimen/_13sdp"
+                    android:cursorVisible="false"/>
+
+                <View
+                    android:id="@+id/div"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_1sdp"
+                    android:background="@color/common_google_signin_btn_text_light_disabled"
+                    android:layout_below="@+id/source"
+                    />
+
+                <TextView
+                    android:id="@+id/endLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="#00000000"
+                    android:text="End Date: "
+                    android:fontFamily="@font/roboto"
+                    android:textColor="@color/headingColor"
+                    android:textSize="@dimen/_13sdp"
+                    android:layout_marginTop="@dimen/_12sdp"
+                    android:layout_below="@+id/div"
+
+                    />
+
+                <TextView
+                    android:id="@+id/destination"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="#00000000"
+                    android:hint="End time"
+                    android:textSize="@dimen/_13sdp"
+                    android:fontFamily="@font/roboto"
+                    android:layout_marginVertical="@dimen/_12sdp"
+                    android:layout_below="@+id/div"
+                    android:textColor="@color/headingColor"
+                    android:layout_toEndOf="@+id/endLabel"/>
+
+        </RelativeLayout>
+
+
+        <!--<ImageView-->
+            <!--android:id="@+id/calender"-->
+            <!--android:layout_width="@dimen/_25sdp"-->
+            <!--android:layout_height="@dimen/_25sdp"-->
+            <!--android:src="@drawable/calender"-->
+            <!--android:layout_margin="@dimen/_5sdp"-->
+            <!--/>-->
+
+        <!--<TextView-->
+            <!--android:id="@+id/time"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_toEndOf="@+id/calender"-->
+            <!--android:text="12:05 "-->
+            <!--android:textColor="@android:color/white"-->
+            <!--android:textSize="@dimen/_16sdp"-->
+            <!--android:fontFamily="@font/roboto"-->
+            <!--android:layout_margin="@dimen/_5sdp"-->
+            <!--android:layout_alignBaseline="@+id/calender"-->
+            <!--/>-->
         <ImageView
             android:id="@+id/pin"
             android:layout_width="@dimen/_25sdp"
             android:layout_height="@dimen/_25sdp"
             android:src="@drawable/pin_black"
-            android:layout_below="@+id/calender"
-            android:layout_margin="@dimen/_5sdp"
+            android:layout_below="@+id/center"
+            android:layout_margin="@dimen/_10sdp"
              />
         <TextView
+            android:id="@+id/address"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_toEndOf="@+id/pin"
-            android:layout_below="@+id/time"
+            android:layout_below="@+id/center"
             android:text="Gulshan "
             android:layout_marginTop="@dimen/_10sdp"
-            android:textColor="@android:color/white"
+            android:textColor="@color/headingColor"
             android:textSize="@dimen/_16sdp"
             android:fontFamily="@font/roboto"
             android:layout_alignBaseline="@+id/pin"

@@ -48,4 +48,9 @@
     <style name="ButtonButtomBorder">
         <item name="android:background">?attr/selectableItemBackground</item>
     </style>
+
+    <style name="ActivityDialogTheme" parent="Theme.AppCompat.Light.Dialog">
+        <item name="android:windowNoTitle">true</item>
+        <item name="windowActionBar">false</item>
+    </style>
 </resources>

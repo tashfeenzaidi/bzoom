@@ -5,7 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@android:color/white"
-    tools:context=".SelectOwnerListActivity">
+    tools:context=".SelectOwnerListActivity"
+    android:id="@+id/relativeLayout">
 
     <RelativeLayout
         android:id="@+id/taskbar"
@@ -33,11 +34,11 @@
             android:layout_marginStart="@dimen/_14sdp"
             app:srcCompat="@drawable/back" />
     </RelativeLayout>
-    <android.support.v7.widget.RecyclerView
+    <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/owner_recycler"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/taskbar">
 
-    </android.support.v7.widget.RecyclerView>
+    </androidx.recyclerview.widget.RecyclerView>
 </RelativeLayout>

@@ -8,20 +8,23 @@ import android.widget.Button;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.bzoom.Utility.Keystore;
+
 public class Verified extends AppCompatActivity {
+
+    private Keystore store;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.verified);
-        Button btn = (Button) findViewById(R.id.next);
-        btn.setOnClickListener(new View.OnClickListener(){
-
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(Verified.this,Name.class);
-                startActivity(intent);
-            }
+        Button btn =  findViewById(R.id.next);
+        store = Keystore.getInstance(Verified.this);
+        btn.setOnClickListener(v -> {
+            Intent intent = new Intent(Verified.this,Name.class);
+            startActivity(intent);
+            finish();
         });
+
     }
 }

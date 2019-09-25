@@ -4,7 +4,7 @@
     <string name="owner">A Car Owner</string>
     <string name="chauffeur">A Chauffeur</string>
     <string name="enternumber">Enter your number</string>
-    <string name="number">  Mobile number</string>
+    <string name="number">3055612548</string>
     <string name="next">NEXT</string>
     <string name="password">Enter password</string>
     <string name="pass">Password</string>
@@ -21,18 +21,51 @@
     <string name="on_duty">on duty</string>
     <string name="toyota_prius_gv8042_mini_white">Toyota Prius - GV8042 - Mini - White</string>
     <string name="main_act_text">Select any of your <font fgcolor='#FC8E11'>cars</font>  to track</string>
-
-    <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="title_activity_maps">Map</string>
     <string name="time_tag">Time Remaining to return car</string>
     <string name="time">2 hr 45 min</string>
-    <string name="ok">ok</string>
-    <string name="dialog_message">I\'m giving my car key to chauffer</string>
+    <string name="ok">OK</string>
+    <string name="dialog_message">I\'m giving my car key to chauffeur</string>
     <string name="dialog_title">Hand over key</string>
     <string name="confirm_date_time"><![CDATA[Confirm Date & Time]]></string>
-    <string name="title_activity_chauffer_main">ChaufferMainActivity</string>
+    <string name="title_activity_chauffer_main">ChauffeurMainActivity</string>
     <string name="timing">Wanted from <font fgcolor='#FC8E11'> 5PM </font> to <font fgcolor='#FC8E11'> 8PM </font></string>
+    <string name="access_token">pk.eyJ1IjoiYnpvb20iLCJhIjoiY2p5aXdsMXRoMDNidDNobXg0dHg3ZGJhNyJ9.kobHW55viqj-VMLJI3t5cQ</string>
 
+    <string name="style_url"> mapbox://styles/v1/bzoom/cjyigui8u00md1cp4qc1fwx8s?access_token=pk.eyJ1IjoiYnpvb20iLCJhIjoiY2p5aXdsMXRoMDNidDNobXg0dHg3ZGJhNyJ9.kobHW55viqj-VMLJI3t5cQ</string>
+    <string name="topic_driver">driver</string>
+    <string name="topic_rider">rider</string>
+    <string name="topic_chauffeur">chauffeur</string>
+    <string name="topic_owner">owner</string>
+    <string name="active_user">active</string>
+    <string name="dactive_user">dactive</string>
+    <string name="user_chauffeur">chauffeur</string>
+    <string name="user_rider">rider</string>
+    <string name="user_driver">driver</string>
+    <string name="user_owner">owner</string>
+    <string name="role">role</string>
+    <string name="driver_status">driverStatus</string>
+    <string name="rid_status">rideStatus</string>
+    <string name="occupy">occupied</string>
+    <string name="getvahicaltype">/getvahicaltype/</string>
+    <string name="login">login</string>
+    <string name="logout">logout</string>
+    <string name="driver_notification">Driver is at your door</string>
+    <string name="start">start</string>
+    <string name="pending">pending</string>
+    <string name="chauffeur_on_the_way">chauffeur on the way</string>
+    <string name="chauffeur_arrived">chauffeur arrived</string>
+    <string name="agreement_accepted">Agreement accepted</string>
+    <string name="chauffuer_accept_agreement">Chauffeur accepted the agreement now you can give the keys to him!</string>
+    <string name="key_received">key received</string>
+    <string name="received_keys">Did you received the keys!</string>
+    <string name="returned_to_owner">Returned to owner</string>
+    <string name="reached_owner_place">reached owner place</string>
+    <string name="owner_disagree">owner disagree</string>
+    <string name="chauffeur_disagree">chauffeur disagree</string>
+    <string name="chauffeur_cancel_owner">chauffeur cancel owner</string>
+    <string name="driver_cancel_ride">driver cancel ride</string>
+    <string name="rider_cancel_ride">rider cancel ride</string>
 
 </resources>

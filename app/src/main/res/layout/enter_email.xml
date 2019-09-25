@@ -21,19 +21,19 @@
         android:text="Enter your email"
         android:textColor="@color/colorPrimaryDark"
         android:textSize="@dimen/_20sdp"
-        android:layout_above="@+id/editText"
+        android:layout_above="@+id/email"
         android:layout_marginStart="@dimen/_16sdp"
         android:layout_marginBottom="@dimen/_18sdp"
         />
 
     <EditText
-        android:id="@+id/editText"
+        android:id="@+id/email"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:background="@drawable/edit_text_primary"
         android:ems="10"
         android:hint="Email"
-        android:inputType="phone"
+        android:inputType="text"
         android:textAlignment="viewStart"
         android:textColorHint="@color/borderColor"
         android:layout_centerHorizontal="true"

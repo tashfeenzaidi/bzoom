@@ -100,19 +100,19 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         //   place2 = new MarkerOptions().position(end).title("Locatio 2");
 
 
-        try {
-
-            SharedPreferences CurrentLocationPrefs = getSharedPreferences("LatLang", Context.MODE_PRIVATE);
-            CurrentLatitude = Double.parseDouble(CurrentLocationPrefs.getString("Lat", "0"));
-            CurrentLongitude = Double.parseDouble(CurrentLocationPrefs.getString("Lag", "0"));
-
-        }catch (Exception ex){
-
-
-            Toast.makeText(this,"We Are Unable to Get your Location Please check in Settings",Toast.LENGTH_SHORT).show();
-
-
-        }
+//        try {
+//
+//            SharedPreferences CurrentLocationPrefs = getSharedPreferences("LatLang", Context.MODE_PRIVATE);
+//            CurrentLatitude = Double.parseDouble(CurrentLocationPrefs.getString("Lat", "0"));
+//            CurrentLongitude = Double.parseDouble(CurrentLocationPrefs.getString("Lag", "0"));
+//
+//        }catch (Exception ex){
+//
+//
+//            Toast.makeText(this,"We Are Unable to Get your Location Please check in Settings",Toast.LENGTH_SHORT).show();
+//
+//
+//        }
 
 
         SharedPreferences prefs = getSharedPreferences("Location", MODE_PRIVATE);
@@ -121,8 +121,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
 
         try {
-            end = new LatLng(Double.parseDouble(Lati), Double.parseDouble(Long));
-            start=new LatLng(CurrentLatitude, CurrentLongitude);
+            end = new LatLng(24.934193, 67.100274);
+            start=new LatLng(53.747710, -2.470952);
         }catch (Exception ex){
             ex.printStackTrace();
             Toast.makeText(this,"We Are Unable to Get your Location Please check in Settings",Toast.LENGTH_SHORT).show();
@@ -196,9 +196,6 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 .anchor(0.5f, 0.5f)
                 .title("Destination Place"));
 
-
-
-
     }
 
 
@@ -239,7 +236,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         String output = "json";
 
         // Building the url to the web service
-        String MY_API_KEY ="AIzaSyCsG2tYn1NyAAM9vR_IXoIR67ATe8iKZK0"; //getResources().getString(R.string.google_maps_key) ;
+        String MY_API_KEY =getResources().getString(R.string.google_maps_key) ;
         String url = "https://maps.googleapis.com/maps/api/directions/" + output + "?" + parameters + "&key=" + MY_API_KEY;
 
         return url;

@@ -5,7 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@android:color/white"
-    tools:context=".CollectTheCarActivity">
+    tools:context=".CollectTheCarActivity"
+    android:orientation="vertical">
     <RelativeLayout
         android:id="@+id/taskbar"
         android:layout_width="match_parent"
@@ -55,15 +56,15 @@
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/_70sdp">
 
-                <ImageView
-                    android:id="@+id/image_rv"
-                    android:layout_width="@dimen/_50sdp"
-                    android:layout_height="@dimen/_50sdp"
-                    android:layout_alignParentStart="true"
-                    android:layout_centerVertical="true"
-                    android:layout_marginStart="@dimen/_14sdp"
-                    android:layout_marginTop="@dimen/_12sdp"
-                    android:background="@drawable/clip" />
+            <ImageView
+                android:id="@+id/image_rv"
+                android:layout_width="@dimen/_50sdp"
+                android:layout_height="@dimen/_50sdp"
+                android:layout_alignParentStart="true"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="@dimen/_12sdp"
+                android:background="@drawable/clip" />
 
                 <TextView
                     android:id="@+id/name"
@@ -170,22 +171,27 @@
                 android:src="@drawable/pin_black"
                 android:layout_centerVertical="true"
                 android:padding="@dimen/_3sdp"
-                android:layout_marginStart="@dimen/_13sdp"/>
+                android:layout_marginStart="@dimen/_5sdp"/>
+
             <TextView
+                android:id="@+id/location"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="2D Johar Mohr, Karachi"
-                android:textSize="@dimen/_13sdp"
-                android:fontFamily="@font/roboto"
-                android:textColor="@color/headingColor"
                 android:layout_centerVertical="true"
+                android:layout_marginStart="@dimen/_5sdp"
+                android:layout_marginEnd="52dp"
+                android:layout_toStartOf="@+id/time"
                 android:layout_toEndOf="@id/pin"
-                android:layout_marginStart="@dimen/_10sdp"
-                />
+                android:fontFamily="@font/roboto"
+                android:text="2D Johar Mohr, Karachi"
+
+                android:textColor="@color/headingColor"
+                android:textSize="@dimen/_13sdp" />
             <TextView
+                android:id="@+id/time"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="5 min from your location"
+                android:text="5 min from here"
                 android:textSize="@dimen/_9sdp"
                 android:fontFamily="@font/roboto"
                 android:textColor="@color/headingColor"

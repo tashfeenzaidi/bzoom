@@ -7,8 +7,7 @@
 
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:theme="@style/AppTheme.AppBarOverlay">
+        android:layout_height="wrap_content">
 
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbar"
@@ -25,10 +24,11 @@
                     android:id="@+id/heading"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/_70sdp"
                     android:layout_centerVertical="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginEnd="@dimen/_90sdp"
                     android:fontFamily="@font/ubuntu_bold"
-                    android:text="Track your cars"
+                    android:text="Track your car"
                     android:textColor="@android:color/white"
                     android:textSize="@dimen/_18sdp"/>
                 <Switch
@@ -39,6 +39,17 @@
                     android:layout_centerVertical="true"
                     android:layout_marginEnd="@dimen/_20sdp"
                     android:theme="@style/CustomSwtichTheme"/>
+                <TextView
+                    android:id="@+id/counter"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:text="1:69:00"
+                    android:layout_marginEnd="@dimen/_20sdp" android:fontFamily="@font/ubuntu_bold"
+                    android:textColor="@android:color/white"
+                    android:textSize="@dimen/_16sdp"
+                    android:visibility="gone"/>
             </RelativeLayout>
         </androidx.appcompat.widget.Toolbar>
 

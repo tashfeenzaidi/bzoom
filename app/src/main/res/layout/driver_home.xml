@@ -75,7 +75,7 @@
                             android:layout_height="wrap_content"
                             android:layout_centerHorizontal="true"
                             android:fontFamily="@font/roboto"
-                            android:text="200+ "
+                            android:text="0"
                             android:textSize="@dimen/_24sdp" />
 
                         <TextView
@@ -109,7 +109,7 @@
                             android:layout_height="wrap_content"
                             android:layout_centerHorizontal="true"
                             android:fontFamily="@font/roboto"
-                            android:text="2 "
+                            android:text="0"
                             android:textSize="@dimen/_24sdp" />
 
                         <TextView
@@ -141,7 +141,7 @@
                             android:layout_height="wrap_content"
                             android:layout_centerHorizontal="true"
                             android:fontFamily="@font/roboto"
-                            android:text="100+"
+                            android:text="0"
                             android:textSize="@dimen/_24sdp" />
 
                         <TextView
@@ -204,7 +204,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textSize="@dimen/_32sdp"
-                        android:text="5000PKR"
+                        android:text="0PKR"
                         android:textColor="@color/headingColor"
                         android:fontFamily="@font/roboto"
                         android:layout_below="@+id/coin"
